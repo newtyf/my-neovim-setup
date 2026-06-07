@@ -25,9 +25,15 @@ return {
             "",
           },
           shortcut = {
-            { icon = "  ", desc = "Find File",    key = "f", action = "Telescope find_files" },
+            {
+              icon = "  ", desc = "Find File", key = "f",
+              action = function() require("telescope.builtin").find_files() end,
+            },
             { icon = "  ", desc = "New File",     key = "n", action = "enew" },
-            { icon = "  ", desc = "Recent Files", key = "r", action = "Telescope oldfiles" },
+            {
+              icon = "  ", desc = "Recent Files", key = "r",
+              action = function() require("telescope.builtin").oldfiles() end,
+            },
             { icon = "  ", desc = "Quit",         key = "q", action = "qa" },
           },
           packages = { enable = true },
