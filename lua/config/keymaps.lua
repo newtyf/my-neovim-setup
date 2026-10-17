@@ -36,5 +36,4 @@ map("x", "<leader>p", [["_dP]], { desc = "Pegar sin sobreescribir registro" })
 map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copiar al portapapeles" })
 map("n", "<leader>Y", [["+Y]], { desc = "Copiar línea al portapapeles" })
 
--- Abrir explorador de archivos nativo
-map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Explorador de archivos" })
+-- <leader>e (explorador) está en lua/plugins/snacks.lua
