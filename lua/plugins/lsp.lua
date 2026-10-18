@@ -11,9 +11,28 @@ return {
         float = { border = "rounded" },
       })
 
+      -- Ajustes de gopls (se combinan con los que trae nvim-lspconfig)
+      vim.lsp.config("gopls", {
+        settings = {
+          gopls = {
+            staticcheck = true, -- análisis extra: código muerto, malas prácticas
+            analyses = {
+              unusedparams = true, -- parámetros sin usar
+              unusedwrite = true,  -- asignaciones que nunca se leen
+            },
+          },
+        },
+      })
+
       -- Servidores activos (nombres de nvim-lspconfig, no de Mason)
       vim.lsp.enable({
-        "ts_ls", -- typescript-language-server
+        "ts_ls",       -- typescript-language-server
+        "gopls",       -- Go
+        "angularls",   -- plantillas de Angular (requiere angular.json en el proyecto)
+        "eslint",      -- ESLint (Nest/Angular)
+        "html",        -- HTML
+        "cssls",       -- CSS/SCSS/Less
+        "somesass_ls", -- Sass (.sass) y mejor soporte de @use/mixins en SCSS
       })
 
       -- Atajos al conectarse un LSP. Neovim ya trae por defecto:
