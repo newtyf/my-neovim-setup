@@ -18,3 +18,4 @@ opt.splitright = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.updatetime = 200
+vim.opt.termguicolors = true -- bufferline colors

@@ -36,4 +36,12 @@ map("x", "<leader>p", [["_dP]], { desc = "Pegar sin sobreescribir registro" })
 map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copiar al portapapeles" })
 map("n", "<leader>Y", [["+Y]], { desc = "Copiar línea al portapapeles" })
 
--- <leader>e (explorador) está en lua/plugins/snacks.lua
+-- Moverse al buffer siguiente (Derecha) con Shift + L
+map('n', '<S-l>', ':bnext<CR>', { desc = 'Siguiente buffer' })
+
+-- Moverse al buffer anterior (Izquierda) con Shift + H
+map('n', '<S-h>', ':bprevious<CR>', { desc = 'Anterior buffer' })
+
+-- Cerrar el buffer actual con Leader + x (Espacio + x)
+map('n', '<leader>x', ':bd<CR>', { desc = 'Cerrar buffer actual' })
+
