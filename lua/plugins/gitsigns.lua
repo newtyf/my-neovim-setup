@@ -12,10 +12,16 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map('n', '<leader>hp', gitsigns.preview_hunk)
+        map('n', '<leader>hp', function()
+          gitsigns.preview_hunk()
+        end)
 
         map('n', '<leader>hb', function()
           gitsigns.blame_line({ full = true })
+        end)
+
+        map('n', '<leader>hr', function()
+          gitsigns.reset_hunk()
         end)
       end
     })

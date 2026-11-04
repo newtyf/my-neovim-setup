@@ -32,6 +32,17 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+       providers = {
+        snippets = {
+          opts = {
+            -- Le indicamos a blink que extienda los lenguajes nativos incorporando "angular"
+            extended_filetypes = {
+              typescript = { 'angular' },
+              html = { 'angular' }
+            }
+          }
+        }
+      }
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

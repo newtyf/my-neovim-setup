@@ -15,7 +15,16 @@ return {
           lualine_b = { "branch", "diff", "diagnostics" },
           lualine_c = { "filename" },
           lualine_x = { "filetype" },
-          lualine_y = { "progress" },
+          lualine_y = {
+            {
+              -- Nombre de la raíz del repo git (o del cwd si no hay repo)
+              function()
+                local root = Snacks.git.get_root() or vim.fn.getcwd()
+                return vim.fn.fnamemodify(root, ":t")
+              end,
+              icon = "",
+            },
+          },
           lualine_z = { "location" },
         },
       })
