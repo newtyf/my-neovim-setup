@@ -42,6 +42,15 @@ map('n', '<S-l>', ':bnext<CR>', { desc = 'Siguiente buffer' })
 -- Moverse al buffer anterior (Izquierda) con Shift + H
 map('n', '<S-h>', ':bprevious<CR>', { desc = 'Anterior buffer' })
 
--- Cerrar el buffer actual con Leader + x (Espacio + x)
-map('n', '<leader>x', ':bd<CR>', { desc = 'Cerrar buffer actual' })
+-- Cerrar el buffer actual con Leader + x (Espacio + x) sin cerrar la ventana;
+-- si no quedan archivos abiertos, mostrar el dashboard
+map("n", "<leader>x", function()
+  Snacks.bufdelete()
+  local quedan = vim.tbl_filter(function(b)
+    return vim.bo[b].buflisted and vim.api.nvim_buf_get_name(b) ~= ""
+  end, vim.api.nvim_list_bufs())
+  if #quedan == 0 then
+    Snacks.dashboard({ win = 0, buf = 0 }) -- en la ventana actual, no como flotante
+  end
+end, { desc = "Cerrar buffer actual" })
 

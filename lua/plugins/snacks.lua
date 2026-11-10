@@ -50,6 +50,22 @@ return {
         },
       },
       explorer = { replace_netrw = true }, -- `nvim .` abre el explorer
+      image = {
+        enabled = true,
+        -- Lista por defecto + svg e ico (reemplaza la lista, no la extiende)
+        formats = {
+          "png", "jpg", "jpeg", "gif", "bmp", "webp", "tiff", "heic", "avif",
+          "mp4", "mov", "avi", "mkv", "webm", "pdf", "icns",
+          "svg", "ico",
+        },
+        doc = {
+          enabled = true, -- renderiza imágenes referenciadas en markdown/html
+          inline = true,  -- muestra la imagen debajo del enlace
+          float = true,   -- o en un float al poner el cursor encima (si inline no es posible)
+          max_width = 80,
+          max_height = 40,
+        },
+      },
       picker = {
         sources = {
           files    = { hidden = true }, -- incluye archivos ocultos (.env, etc.)
